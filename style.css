@@ -1,0 +1,112 @@
+header{
+    padding:0;
+    margin:0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: rgb(253, 230, 169);
+    color:rgba(251, 119, 31, 0);
+    font-family: 'DM Serif Text', serif;
+    font-size: 3em;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+div {
+    display: inline-block;
+}
+
+#page{
+    text-align: center;
+    vertical-align: middle;
+    height: 100vh;
+    justify-content: center;
+    width: 100%;
+}
+
+#content{
+    color: rgb(180, 85, 56);
+    text-align: center;
+    font-family: 'DM Serif Text', serif;
+    font-size: 48pt;
+    line-height: 1.5;
+    font-weight: 400;
+    padding-top: 20vh;
+}
+
+button{
+    background-color: #fbab32;
+    border: none;
+    color: rgb(180, 85, 56);
+    padding: 1% 2%;
+    text-align: center;
+    font-family: 'DM Serif Text', serif;
+    font-size: 28pt;
+    line-height: 1.5;
+    font-weight: 400;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    width: 200pt;
+    border-radius: 8pt;
+}
+
+#buttons {
+    width: 100%;
+}
+
+button:hover{
+    color: #fbab32;
+    background-color: rgb(180, 85, 56);
+}
+
+button:focus{
+    outline: none;
+}
+
+input[type=text] {
+    display:inline-block;
+    height: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: transparent;
+    border-style:solid;
+    border-width: 2pt;
+    border-color: #fbab32;
+    border-radius: 8pt;
+    height: 80%;
+    width:150pt;
+    color: rgb(180, 85, 56);
+    text-align: center;
+    font-family: 'DM Serif Text', serif;
+    font-size: 48pt;
+    line-height: 1.5;
+    font-weight: 400;
+    transition-duration:0.4s;
+}
+
+input[type=text]:focus {
+    border-color: rgb(180, 85, 56);
+    outline:none;
+}
+
+#answer {
+    vertical-align: center;
+}
+
+strong {
+    color: inherit;
+    font-weight: bolder;
+}
+
+em {
+    font-style: italic;
+}
+
+
+
+
+
+

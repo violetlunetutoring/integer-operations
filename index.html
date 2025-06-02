@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Integer Operations | Violet Lune Tutoring</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <meta name="color-scheme" content="Integer Operations Excercises"/>
+        <meta property="og:site_name" content="Integer Operations | Violet Lune Tutoring"/>
+        <meta property="og:title" content="Integer Operations | Violet Lune Tutoring"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:description" content="Practice integer operations"/>
+        <link rel='stylesheet' href='style.css'/>
+        <link href="https://fonts.googleapis.com/css2?display=swap&family=Delicious+Handrawn:ital,wght@0,400;1,400&family=Didact+Gothic:ital,wght@0,400;1,400&family=DM+Serif+Text:ital,wght@0,400;1,400" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+
+        
+        
+    </head>
+    <body>
+        
+        <div id="page">
+            <div id="content">
+                <div id="problem">
+                    1+1=
+                </div>
+                <div id="answer">
+                    <input type="text" id="textbox" onkeypress="clickPress(event)">
+                </div>
+                <div id="buttons">
+                    <button type="button" onclick="clickCheck()" id="check">check</button>
+                    <button type="button" onclick="showAnswer()" id="show">show</button>
+                </div>
+                <div id="feedback">
+                    
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <script>
+
+            //  0=add, 1=subtract, 2=multiply, 3=divide
+            var i;
+
+            function chooseOp() {
+                return Math.floor(Math.random()*4);
+            }
+
+            function displayOp(i) {
+                if (i==0){return " + "} else if (i==1){return " - "} else if (i==2){return " x "} else {return " / "};
+            }
+
+            var first;
+            var second;
+            var actual;
+            var shown = 0;
+
+            function check() {
+                var answer=Number(document.getElementById("textbox").value);
+                console.log(answer);
+                if (i==0){
+                    actual = first + second;
+                    if(answer==actual){return true}
+                } 
+                else if (i==1){
+                    actual = first - second;
+                    if(answer==actual){return true}
+                } 
+                else if (i==2){
+                    actual = first * second;
+                    if(answer==actual){return true}
+                } 
+                else {
+                    actual = first / second;
+                    if(answer==actual){return true}
+                };
+            }
+
+            function displayCheck(checkResult){
+                if(checkResult){
+                    shown=1;
+                    document.getElementById("textbox").style.borderColor = "#3a7135";
+                    document.getElementById("textbox").style.color = "#3a7135";
+                    document.getElementById("check").innerHTML = "yay :)";
+                    document.getElementById("check").style.transition = "0.4s";
+                    document.getElementById("check").style.backgroundColor = "#3a7135";
+                    document.getElementById("check").style.color = "#fbab32";
+                    document.getElementById("check").style.cursor = "default";
+
+                    document.getElementById("show").innerHTML = "next";
+                }
+                else{
+                    document.getElementById("textbox").style.borderColor = "#b94242";
+                    document.getElementById("textbox").style.color = "#b94242";
+                    document.getElementById("check").innerHTML = "try again :(";
+                    document.getElementById("check").style.backgroundColor = "#b94242";
+                    document.getElementById("check").style.color = "#fbab32";
+                    document.getElementById("check").style.cursor = "pointer";
+                }
+
+                
+            }
+
+            function clickCheck(){
+                displayCheck(check());
+            }
+
+            function displayNew() {
+                i=chooseOp();
+                if(i==0 || i==1) {
+                    first=Math.floor(Math.random()*200-100);
+                    second=Math.floor(Math.random()*200-100);
+                } else if (i==2) {
+                    first=Math.floor(Math.random()*20-10);
+                    second=Math.floor(Math.random()*200-100);
+                } else {
+                    second=Math.floor(Math.random()*20-10);
+                    if(!second){second++}
+                    first=second*Math.floor(Math.random()*20-10)
+                }
+                document.getElementById("problem").innerHTML = "(" + first + ")" + displayOp(i) + "(" + second + ") = ";
+
+                document.getElementById("answer").innerHTML = "<input type='text' id='textbox' onkeypress='clickPress(event)'>";
+                document.getElementById("textbox").style.display = "inline-block";
+
+                document.getElementById("check").innerHTML = "check";
+                document.getElementById("check").style.transition = "0.4s";
+                document.getElementById("check").style.backgroundColor = "";
+                document.getElementById("check").style.color = "";
+                document.getElementById("check").style.cursor = "pointer";
+            }
+
+            function clickPress(event) {
+                if (event.key == "Enter") {
+                    clickCheck();
+                    document.getElementById("show").focus();
+                }
+            }
+
+            function showAnswer(){
+                if(!shown){
+                    check();
+                    document.getElementById("textbox").style.display = "none";
+                    document.getElementById("answer").innerHTML = actual;
+                    document.getElementById("show").innerHTML = "next";
+                    document.getElementById("check").style.display = "none"
+                    shown=1;
+                } else {
+                    displayNew();
+                    document.getElementById("show").innerHTML = "show";
+                    document.getElementById("check").style.display = "inline-block"
+                    shown=0;
+                }
+            }
+
+
+
+            window.onload = displayNew();
+
+
+        </script>
+
+
+    </body>
+</html>
